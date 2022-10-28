@@ -36,31 +36,29 @@ require_once '../inc/admin_head_inc.php';
         <?= $alert; ?>
     </div>
     <hr>
-    <div class="container mt-3">
+    <div class="container mt-3 mb-5 d-flex flex-wrap justify-content-around">
 
 
 
         <?php while ($row = $orderReq->fetch(PDO::FETCH_ASSOC)) { ?>
 
 
-            <p>
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-                    <?php echo $row['order_id']; ?>
-                </button>
-            </p>
-           
+            <div class="card m-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"> Order n° : <?php echo $row['order_id']; ?></h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Ordered : <?php echo $row['registration_date']; ?></h6>
+                            <p class="card-text"><strong><?php echo $row['title']; ?></strong></p>
+                            <p class="card-text">Quantity : <?php echo $row['quantity']; ?></p>
+                            <p class="card-text">Price : <?php echo $row['price']; ?> €</p>
+                            <p class="card-text"><strong>Total amount : <?php echo $row['amount']; ?> €</strong></p>
+                            <p class="card-text">Order state : <?php echo $row['state']; ?></p>
+                            <img src="<?php echo $row['picture']; ?>" alt="" style="max-width:150px;">
+                </div>
+            </div>
 
 
 
-            <h2><?php echo $row['order_id']; ?></h2>
-            <p><?php echo $row['amount']; ?></p>
-            <p><?php echo $row['registration_date']; ?></p>
-            <p><?php echo $row['state']; ?></p>
-            <p><?php echo $row['product_id']; ?></p>
-            <p><?php echo $row['quantity']; ?></p>
-            <p><?php echo $row['price']; ?></p>
-            <img src="<?php echo $row['picture']; ?>" alt="">
-
+            
         <?php } ?>
 
     </div>

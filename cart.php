@@ -68,12 +68,14 @@ require_once './inc/head_inc.php';
             $member = $_SESSION['member']['member_id'];
             $connect->query("INSERT INTO shop_order (member_id, amount, registration_date, state) VALUES('$member','".totalAmount()."',NOW(), 'being processed')");
 
+            $orderId = $connect->lastInsertId();
 
             for ($i=0; $i < count($_SESSION['cart']['product_id']); $i++) { 
-                $orderId = $connect->lastInsertId();
+               
                 $connect->query("INSERT INTO order_details(order_id,product_id,quantity,price) VALUES('$orderId','".$_SESSION['cart']['product_id'][$i]."','".$_SESSION['cart']['stock'][$i]."','".$_SESSION['cart']['price'][$i]."')");
 
                 // Mettre à jour la bdd
+
 
                 $connect->query("UPDATE product SET stock = stock - '".$_SESSION['cart']['stock'][$i]."' WHERE product_id = '".$_SESSION['cart']['product_id'][$i]."' ");
             }
