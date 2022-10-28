@@ -1,0 +1,269 @@
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background-color: #f5f5f7;
+}
+
+footer {
+  position: fixed;
+  height: 50px;
+  background-color: #212529;
+  color: white;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.navbar-brand {
+  font-size: 20px;
+}
+
+.alert-email span {
+  font-weight: 900;
+}
+
+.card {
+  -webkit-box-shadow: 5px 5px 15px 6px rgba(0, 0, 0, 0.24);
+  box-shadow: 5px 5px 15px 6px rgba(0, 0, 0, 0.24);
+}
+
+.admin-offcanvas {
+  background-color: #212529 !important;               
+  color: white;
+}
+
+.product-form {
+  padding-bottom: 50px;
+}
+
+.admin-footer {
+  position: fixed;
+  margin-top: 100px;
+  height: 50px;
+  background-color: #212529;
+  color: white;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+.register-container {
+  padding-top: 120px;
+}
+
+.registrar-h1 {
+  position: relative;
+  top: 120px;
+}
+
+.bi::before {
+  font-size: 25px;
+}
+
+.copyright {
+  margin-bottom: 0;
+}
+
+/* -------------------------------SHOP-------------------------------  */
+
+.shop-nav {
+  height: 45px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-top: 1px solid #ffffff;
+  position: fixed;
+  top: 56px;
+  width: 100%;
+  z-index: 2;
+}
+
+.shop-nav ul {
+  padding: 0 10px;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+.shop-nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+/* -------------------------------IPAD-------------------------------  */
+
+.container-ipad {
+  padding: 0;
+  position: relative;
+  top: 123px;
+}
+
+.ipad-section {
+  background-image: url(../img/hero_ipad.jpeg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 670px;
+  display: block;
+  position: relative;
+}
+
+.ipad-section-texts {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.ipad-section-texts h2 {
+  font-size: 56px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.ipad-section-texts h3 {
+  font-size: 28px;
+  font-weight: 400;
+  color: #1d1d1f;
+}
+
+/* -------------------------------IPHONE-------------------------------  */
+.container-iphone {
+  padding: 0;
+  position: relative;
+  top: 123px;
+}
+
+.iphone-section {
+  background-image: url(../img/hero_iphone14pro.jpg);
+  background-position: center -170px;
+  background-repeat: no-repeat;
+  height: 670px;
+  display: block;
+  position: relative;
+}
+
+.iphone-section-texts {
+  position: absolute;
+  top: 15%;
+  left: 40%;
+}
+
+.iphone-section-texts h2 {
+  font-size: 56px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.iphone-section-texts h3 {
+  font-size: 28px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+/* -------------------------------WATCH-------------------------------  */
+.container-watch {
+  padding: 0;
+  position: relative;
+  top: 123px;
+}
+
+.watch-section {
+  background-image: url(../img/hero_ultra.jpeg);
+  background-position: center -110px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 670px;
+  display: block;
+  position: relative;
+}
+
+.watch-section-texts {
+  position: absolute;
+  top: 30%;
+  left: 7%;
+}
+
+.watch-section-texts h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.watch-section-texts h2 span {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #bf4800;
+}
+
+.watch-section-texts h3 {
+  font-size: 28px;
+  font-weight: 400;
+  color: #000000;
+}
+
+/* -------------------------------MAC-------------------------------  */
+.container-mac {
+  padding: 0;
+  position: relative;
+  top: 123px;
+}
+
+.mac-section {
+  background-image: url(../img/macbook_pro_13.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 670px;
+  display: block;
+  position: relative;
+}
+
+.mac-section-texts {
+  position: absolute;
+  top: 7%;
+  left: 43%;
+}
+
+.mac-section-texts h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.mac-section-texts h3 {
+  font-size: 28px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.category-container {
+  position: relative;
+  top: 123px;
+  max-width: 1600px;
+  padding: 150px 0;
+}
+
+.product-card {
+  background-color: #fff;
+  color: #1d1d1f;
+}
+
+.card-img-top {
+  padding: 10px;
+}
+
+.product-container {
+  position: relative;
+  top: 150px;
+  max-width: 1600px;
+  margin-bottom: 80px;
+}
+
+.cart-container {
+  max-width: 1600px;
+  padding: 120px 0;
+}
+
+.member-container {
+  margin-bottom: 80px !important;
+}
