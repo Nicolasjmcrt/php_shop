@@ -27,3 +27,5 @@
     require_once 'function.php';
 
     define('URL', 'http://localhost:8888/php_shop/');
+    define('ORDER', 'http://localhost:8888/php_shop/admin/order_management.php/');
+    define('PRODUCT', 'http://localhost:8888/php_shop/admin/product_management.php/');

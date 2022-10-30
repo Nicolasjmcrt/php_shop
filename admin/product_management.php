@@ -239,7 +239,7 @@ require_once '../inc/admin_head_inc.php';
         <?= $alert; ?>
     </div>
     <hr>
-    <div class="container mt-3">
+    <div class="container-fluid mt-3">
 
         <?php
 
@@ -314,17 +314,17 @@ require_once '../inc/admin_head_inc.php';
             <ul class="pagination justify-content-center">
                 <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
                 <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                    <a href="./product_management.php/?page=<?= $currentPage - 1 ?>" class="page-link">Previous</a>
+                    <a href="<?= PRODUCT ?>?page=<?= $currentPage - 1 ?>" class="page-link">Previous</a>
                 </li>
                 <?php for ($page = 1; $page <= $pages; $page++) : ?>
                     <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
                     <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
-                        <a href="./product_management.php/?page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                        <a href="<?= PRODUCT ?>?page=<?= $page ?>" class="page-link"><?= $page ?></a>
                     </li>
                 <?php endfor ?>
                 <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
                 <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
-                    <a href="./product_management.php/?page=<?= $currentPage + 1 ?>" class="page-link">Next</a>
+                    <a href="<?= PRODUCT ?>?page=<?= $currentPage + 1 ?>" class="page-link">Next</a>
                 </li>
             </ul>
         </nav>
