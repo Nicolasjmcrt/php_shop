@@ -236,6 +236,71 @@ footer {
   color: #ffffff;
 }
 
+
+/* -------------------------------DOUBLE-------------------------------  */
+
+.container-double {
+  padding: 0;
+  position: relative;
+  top: 123px;
+}
+
+.iphone14-section {
+  background-image: url(../img/promo_iphone14.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 670px;
+  display: block;
+  position: relative;
+}
+
+.iphone14-section-texts {
+  position: absolute;
+  top: 12%;
+  left: 38%;
+}
+
+.iphone14-section-texts h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.iphone14-section-texts h3 {
+  font-size: 28px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.tv4k-section {
+  background-image: url(../img/promo_tv4k.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 670px;
+  display: block;
+  position: relative;
+}
+
+.tv4k-section-texts {
+  position: absolute;
+  top: 12%;
+  left: 12%;
+}
+
+.tv4k-section-texts h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.tv4k-section-texts h3 {
+  font-size: 28px;
+  font-weight: 400;
+  color: #000000;
+}
+
 .category-container {
   position: relative;
   top: 123px;
