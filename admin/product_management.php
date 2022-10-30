@@ -1,4 +1,5 @@
 <?php
+
 require_once '../inc/init.php';
 require_once '../inc/admin_head_inc.php';
 // var_dump($connect);
@@ -14,6 +15,37 @@ require_once '../inc/admin_head_inc.php';
     <?php
 
     $error = '';
+
+    if (isset($_GET['page']) && !empty($_GET['page'])) {
+        $currentPage = (int) strip_tags($_GET['page']);
+    } else {
+        $currentPage = 1;
+    }
+
+    $sql = 'SELECT COUNT(*) AS nb_products FROM `product`;';
+
+    $query = $connect->prepare($sql);
+
+    $query->execute();
+
+    $result = $query->fetch();
+
+    $nbProducts = (int) $result['nb_products'];
+
+    $perPage = 10;
+
+    $pages = ceil($nbProducts / $perPage);
+
+    $premier = ($currentPage * $perPage) - $perPage;
+
+    $viewReq = $connect->prepare("SELECT * FROM product ORDER BY product_id DESC LIMIT :premier, :perPage");
+
+    $viewReq->bindValue(':premier', $premier, PDO::PARAM_INT);
+    $viewReq->bindValue(':perPage', $perPage, PDO::PARAM_INT);
+
+    $viewReq->execute();
+
+    $products = $viewReq->fetchAll(PDO::FETCH_ASSOC);
 
 
 
@@ -211,7 +243,6 @@ require_once '../inc/admin_head_inc.php';
 
         <?php
 
-        $viewReq = $connect->query("SELECT * FROM product ORDER BY product_id DESC");
 
         // $error .= '<h2 class="text-center display-4">Liste des '. $viewReq->rowCount() . ' produits de la boutique</h2>';
 
@@ -259,26 +290,44 @@ require_once '../inc/admin_head_inc.php';
                 </tr>
             </thead>
             <tbody>
-                <?php while ($lines = $viewReq->fetch(PDO::FETCH_ASSOC)) { ?>
+                <?php foreach ($products as $product) { ?>
                     <tr>
-                        <th scope="row" class="align-middle"><?php echo $lines['product_id']; ?></th>
-                        <td class="align-middle"><?php echo $lines['reference']; ?></td>
-                        <td class="align-middle"><?php echo $lines['category']; ?></td>
-                        <td class="align-middle"><?php echo $lines['title']; ?></td>
-                        <td class="text-truncate align-middle" style="max-width: 250px;"><?php echo $lines['details']; ?></td>
-                        <td class="align-middle"><?php echo $lines['color']; ?></td>
-                        <td class="align-middle"><?php echo $lines['size']; ?></td>
-                        <td class="align-middle"><?php echo $lines['gender']; ?></td>
-                        <td class="align-middle"><img src="<?php echo $lines['picture']; ?>" style="width:100px;"></td>
-                        <td class="align-middle"><?php echo $lines['price']; ?>€</td>
-                        <td class="align-middle"><?php echo $lines['stock']; ?></td>
-                        <td class="align-middle"><a href="?action=edit&product_id=<?php echo $lines['product_id']; ?>"><i class="bi bi-pencil-fill text-warning"></i></a></td>
+                        <th scope="row" class="align-middle"><?php echo $product['product_id']; ?></th>
+                        <td class="align-middle"><?php echo $product['reference']; ?></td>
+                        <td class="align-middle"><?php echo $product['category']; ?></td>
+                        <td class="align-middle"><?php echo $product['title']; ?></td>
+                        <td class="text-truncate align-middle" style="max-width: 250px;"><?php echo $product['details']; ?></td>
+                        <td class="align-middle"><?php echo $product['color']; ?></td>
+                        <td class="align-middle"><?php echo $product['size']; ?></td>
+                        <td class="align-middle"><?php echo $product['gender']; ?></td>
+                        <td class="align-middle"><img src="<?php echo $product['picture']; ?>" style="width:100px;"></td>
+                        <td class="align-middle"><?php echo $product['price']; ?>€</td>
+                        <td class="align-middle"><?php echo $product['stock']; ?></td>
+                        <td class="align-middle"><a href="?action=edit&product_id=<?php echo $product['product_id']; ?>"><i class="bi bi-pencil-fill text-warning"></i></a></td>
 
-                        <td class="align-middle"><a href="?action=delete&product_id=<?php echo $lines['product_id']; ?>"><i class="bi bi-trash-fill text-danger"></i></a></td>
+                        <td class="align-middle"><a href="?action=delete&product_id=<?php echo $product['product_id']; ?>"><i class="bi bi-trash-fill text-danger"></i></a></td>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
+        <nav>
+            <ul class="pagination justify-content-center">
+                <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
+                <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+                    <a href="./product_management.php/?page=<?= $currentPage - 1 ?>" class="page-link">Previous</a>
+                </li>
+                <?php for ($page = 1; $page <= $pages; $page++) : ?>
+                    <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
+                    <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
+                        <a href="./product_management.php/?page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                    </li>
+                <?php endfor ?>
+                <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
+                <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+                    <a href="./product_management.php/?page=<?= $currentPage + 1 ?>" class="page-link">Next</a>
+                </li>
+            </ul>
+        </nav>
     </div>
     <div class="container mt-3 mb-5">
         <div class="row">
