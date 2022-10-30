@@ -39,7 +39,6 @@ require_once '../inc/admin_head_inc.php';
     <div class="container mt-3 mb-5 d-flex flex-wrap justify-content-around">
 
 
-
         <?php while ($row = $orderReq->fetch(PDO::FETCH_ASSOC)) { ?>
 
 
@@ -55,18 +54,10 @@ require_once '../inc/admin_head_inc.php';
                             <img src="<?php echo $row['picture']; ?>" alt="" style="max-width:150px;">
                 </div>
             </div>
-
-
-
-            
+      
         <?php } ?>
 
     </div>
-
-
-
-
-
 
     <?php
     require_once '../inc/admin_footer_inc.php';
