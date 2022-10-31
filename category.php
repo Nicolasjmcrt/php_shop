@@ -24,7 +24,16 @@ require_once './inc/head_inc.php';
     if (isset($_GET['category'])) {
 
         $reqCat = $connect->query("SELECT * FROM product WHERE category = '$_GET[category]'");
-    } ?>
+
+    } else {
+
+        if (isset($_GET['category']) && $_GET['sub_category']) {
+
+        $reqSubCat = $connect->query("SELECT * FROM product WHERE sub_category = '$_GET[sub_category]'");
+
+        }
+
+     } ?>
 
     <?php if ($_GET['category']  == 'iPad') : ?>
 
@@ -78,6 +87,7 @@ require_once './inc/head_inc.php';
                     <img src="<?php echo $row['picture']; ?>" class="card-img-top" alt="<?php echo $row['title']; ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['title']; ?></h5>
+                        <p class="card-text"><?php echo $row['sub_category']; ?></p>
                         <p class="card-text"><?php echo $row['color']; ?></p>
                         <p class="card-text"><?php echo $row['size']; ?></p>
                     </div>
@@ -141,6 +151,7 @@ require_once './inc/head_inc.php';
                     <img src="<?php echo $row['picture']; ?>" class="card-img-top" alt="<?php echo $row['title']; ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['title']; ?></h5>
+                        <p class="card-text"><?php echo $row['sub_category']; ?></p>
                         <p class="card-text"><?php echo $row['color']; ?></p>
                         <p class="card-text"><?php echo $row['size']; ?></p>
                     </div>
@@ -195,6 +206,7 @@ require_once './inc/head_inc.php';
                     <img src="<?php echo $row['picture']; ?>" class="card-img-top" alt="<?php echo $row['title']; ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['title']; ?></h5>
+                        <p class="card-text"><?php echo $row['sub_category']; ?></p>
                         <p class="card-text"><?php echo $row['color']; ?></p>
                         <p class="card-text"><?php echo $row['size']; ?></p>
                     </div>
@@ -308,6 +320,7 @@ require_once './inc/head_inc.php';
                     <img src="<?php echo $row['picture']; ?>" class="card-img-top" alt="<?php echo $row['title']; ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['title']; ?></h5>
+                        <p class="card-text"><?php echo $row['sub_category']; ?></p>
                         <p class="card-text"><?php echo $row['color']; ?></p>
                         <p class="card-text"><?php echo $row['size']; ?></p>
                     </div>
@@ -366,6 +379,7 @@ require_once './inc/head_inc.php';
                     <img src="<?php echo $row['picture']; ?>" class="card-img-top" alt="<?php echo $row['title']; ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['title']; ?></h5>
+                        <p class="card-text"><?php echo $row['sub_category']; ?></p>
                         <p class="card-text"><?php echo $row['color']; ?></p>
                         <p class="card-text"><?php echo $row['size']; ?></p>
                     </div>
@@ -418,6 +432,7 @@ require_once './inc/head_inc.php';
                     <img src="<?php echo $row['picture']; ?>" class="card-img-top" alt="<?php echo $row['title']; ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['title']; ?></h5>
+                        <p class="card-text"><?php echo $row['sub_category']; ?></p>
                         <p class="card-text"><?php echo $row['color']; ?></p>
                         <p class="card-text"><?php echo $row['size']; ?></p>
                     </div>

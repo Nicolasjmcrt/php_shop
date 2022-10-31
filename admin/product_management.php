@@ -62,6 +62,7 @@ require_once '../inc/admin_head_inc.php';
 
         $reference = $_POST['reference'];
         $category = $_POST['category'];
+        $subCategory = $_POST['subcategory'];
         $title = $_POST['title'];
         $details = $_POST['details'];
         $color = $_POST['color'];
@@ -122,6 +123,7 @@ require_once '../inc/admin_head_inc.php';
 
             $connect->query("UPDATE product SET reference = '$reference',
                                                 category = '$category',
+                                                sub_category = '$subCategory',
                                                 title = '$title',
                                                 details = '$details',
                                                 color = '$color',
@@ -149,6 +151,12 @@ require_once '../inc/admin_head_inc.php';
             if (empty($category)) {
                 $error .= '<div class="alert alert-dismissible fade show alert-danger" role="alert">
             You must enter a category !
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+            }
+
+            if (empty($subCategory)) {
+                $error .= '<div class="alert alert-dismissible fade show alert-danger" role="alert">
+            You must enter a sub-category !
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
             }
 
@@ -206,7 +214,7 @@ require_once '../inc/admin_head_inc.php';
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
             }
             if (empty($error)) {
-                $connect->query("INSERT INTO product(reference, category, title, details, color, size, gender, picture, price, stock) VALUES('$reference', '$category', '$title', '$details', '$color', '$size', '$gender', '$dbImg', '$price','$stock')");
+                $connect->query("INSERT INTO product(reference, category, sub_category, title, details, color, size, gender, picture, price, stock) VALUES('$reference', '$category', '$subCategory''$title', '$details', '$color', '$size', '$gender', '$dbImg', '$price','$stock')");
 
                 $error .= '<div class="alert alert-dismissible fade show alert-success" role="alert">
                 The product has been registered!
@@ -261,6 +269,7 @@ require_once '../inc/admin_head_inc.php';
         $pId = (isset($data['product_id'])) ? $data['product_id'] : '';
         $ref = (isset($data['reference'])) ? $data['reference'] : '';
         $cat = (isset($data['category'])) ? $data['category'] : '';
+        $sub = (isset($data['sub_category'])) ? $data['sub_category'] : '';
         $tit = (isset($data['title'])) ? $data['title'] : '';
         $des = (isset($data['details'])) ? $data['details'] : '';
         $col = (isset($data['color'])) ? $data['color'] : '';
@@ -277,6 +286,7 @@ require_once '../inc/admin_head_inc.php';
                     <th scope="col">Product Id</th>
                     <th scope="col">Reference</th>
                     <th scope="col">Category</th>
+                    <th scope="col">Sub-category</th>
                     <th scope="col">Title</th>
                     <th scope="col">Details</th>
                     <th scope="col">Color</th>
@@ -295,6 +305,7 @@ require_once '../inc/admin_head_inc.php';
                         <th scope="row" class="align-middle"><?php echo $product['product_id']; ?></th>
                         <td class="align-middle"><?php echo $product['reference']; ?></td>
                         <td class="align-middle"><?php echo $product['category']; ?></td>
+                        <td class="align-middle"><?php echo $product['sub_category']; ?></td>
                         <td class="align-middle"><?php echo $product['title']; ?></td>
                         <td class="text-truncate align-middle" style="max-width: 250px;"><?php echo $product['details']; ?></td>
                         <td class="align-middle"><?php echo $product['color']; ?></td>
@@ -346,6 +357,10 @@ require_once '../inc/admin_head_inc.php';
                     <div class="mb-3">
                         <label for="category" class="form-label">Category</label>
                         <input type="text" class="form-control" name="category" id="category" value="<?= $cat ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="sub_category" class="form-label">Sub-Category</label>
+                        <input type="text" class="form-control" name="sub_category" id="sub_category" value="<?= $sub ?>">
                     </div>
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
