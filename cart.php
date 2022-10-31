@@ -27,6 +27,7 @@ require_once './inc/head_inc.php';
         $formStk = $_POST['stock'];
 
         updateCart($prodId, $formStk, $prodTitle, $prodColor, $prodPrice);
+        header('location:cart.php');
 
         // var_dump($_SESSION['cart']);
 

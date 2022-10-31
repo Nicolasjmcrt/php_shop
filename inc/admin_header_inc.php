@@ -1,4 +1,4 @@
-<?php require_once 'init.php'; ?>
+
 
 
 <div class="container mt-3">
