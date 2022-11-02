@@ -441,4 +441,15 @@ footer {
 
 .tv-homepod-h3 {
   width: 56%;
+  color: #212529;
+}
+
+.categ-h3-link {
+  text-decoration: none;
+  color: #212529;
+}
+
+.tvhome-a   {
+  text-decoration: none!important;
+  color: #212529;
 }

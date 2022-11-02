@@ -62,7 +62,7 @@ require_once '../inc/admin_head_inc.php';
 
         $reference = $_POST['reference'];
         $category = $_POST['category'];
-        $subCategory = $_POST['subcategory'];
+        $subCategory = $_POST['sub_category'];
         $title = $_POST['title'];
         $details = $_POST['details'];
         $color = $_POST['color'];
@@ -214,11 +214,16 @@ require_once '../inc/admin_head_inc.php';
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
             }
             if (empty($error)) {
-                $connect->query("INSERT INTO product(reference, category, sub_category, title, details, color, size, gender, picture, price, stock) VALUES('$reference', '$category', '$subCategory''$title', '$details', '$color', '$size', '$gender', '$dbImg', '$price','$stock')");
+                $connect->query("INSERT INTO product(reference, category, sub_category, title, details, color, size, gender, picture, price, stock) VALUES('$reference', '$category', '$subCategory','$title', '$details', '$color', '$size', '$gender', '$dbImg', '$price','$stock')");
+
 
                 $error .= '<div class="alert alert-dismissible fade show alert-success" role="alert">
                 The product has been registered!
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+
+                header('location:product_management.php');
+
+                
             }
         }
 
